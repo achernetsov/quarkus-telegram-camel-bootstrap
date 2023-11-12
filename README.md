@@ -3,13 +3,25 @@
 Simple telegram bot based on:
 1. Quarkus
 2. Camel
-3. DB (sqlite)
+3. JDBC (h2)
 
-It greets user and saves dialog events into DB.
+It saves user in DB and sends different greetings for new and existing user.
 
-Bot's logic implemented using camel routes.
+Bot logic implemented on camel routes.
 
-## Original quarkus docs
+# Quickstart
+
+1. Create telegram bot in botfather
+2. Save bot token in .env file (see .env.example)
+3. Run service: ```./mvnw quarkus:dev```
+4. Write /start in telegram bot
+5. Bot will process input:
+- It will search if user was previously saved; if not - it will create one and then answer
+- If user was saved previously, it will answer with different message
+
+![Telegram chat screenshot](./docs/tg-screen.png)
+
+# Original quarkus docs
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
